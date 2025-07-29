@@ -4,8 +4,11 @@ import Promotions from "../../components/Promotions";
 import ItemCard from "../../components/ItemCard";
 import image from "../../images/image-example.png";
 import { Box } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
+    const navigate = useNavigate();
+
   const promoMessages = [
     "Find Your Perfect Service",
     "No more searching store by store",
@@ -29,10 +32,15 @@ const Services = () => {
   ];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  useEffect(() => {
-    console.log("User selected:", selectedCategory);
-    // You can now use `selectedCategory` to filter, fetch, etc.
-  }, [selectedCategory]);
+  const Navigation = (category) => {
+     if (category !== "All") {
+       navigate(`/services/${selectedCategory.toLowerCase()}`);
+     }
+   };
+   useEffect(() => {
+     Navigation(selectedCategory);
+     console.log("User selected:", selectedCategory);
+   }, [selectedCategory]);
   return (
     <div>
       <Promotions messages={promoMessages} />

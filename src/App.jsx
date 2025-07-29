@@ -4,16 +4,9 @@ import Footer from "./Frontend/components/Footer";
 import Home from "./Frontend/views/home/Home";
 import Products from "./Frontend/views/products/Products";
 import Services from "./Frontend/views/services/Services";
-import ItemCard from "./Frontend/components/ItemCard";
-import Promotions from "./Frontend/components/Promotions";
 import ProductsCategory from "./Frontend/views/products/ProductsCategory";
-// import image from "./Frontend/images/image-example.png";
-
-// const promoMessages = [
-//   "Place your order",
-//   "No more searching store by store",
-//   "Remember to share our website with your friends and family",
-// ];
+import ServiceCategory from "./Frontend/views/services/ServiceCategory";
+import Contact from "./Frontend/views/contact/Contact";
 
 const App = () => {
   return (
@@ -33,6 +26,8 @@ const App = () => {
           <Route path="/products" element={<Products />} />
           <Route path="/products/:name" element={<ProductsCategory />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/services/:name" element={<ServiceCategory />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </Router>

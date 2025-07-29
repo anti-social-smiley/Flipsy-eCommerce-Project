@@ -6,54 +6,44 @@ import CategoryNav from "../../components/CategoriesNav";
 import Promotions from "../../components/Promotions";
 import { Box } from "@mui/material";
 
-const ProductsCategory = () => {
-  const { name } = useParams();
+const ServiceCategory = () => {
+ const { name } = useParams();
   const navigate = useNavigate();
   const promoMessages = [
-    "Place your order",
+    "Find Your Perfect Service",
     "No more searching store by store",
     "Remember to share our website with your friends and family",
   ];
   const categories = [
-    "Books",
-    "Clothing",
-    "Electronics",
-    "Home",
-    "Toys",
-    "Fitness",
-    "Music",
-    "Beauty",
-    "Sports",
-    "Automotive",
-    "Health",
-    "Grocery",
-    "Pet Supplies",
-    "Garden",
-    "Tools",
-    "Office Supplies",
-    "Baby Products",
-    "Arts & Crafts",
-    "Jewelry",
-    "Video Games",
-    "Movies & TV",
-    "Software",
-    "Travel",
+    "Consulting",
+    "Design",
+    "Development",
+    "Marketing",
     "Photography",
+    "Writing",
+    "Tutoring",
+    "Translation",
+    "Event Planning",
+    "Fitness Training",
+    "Legal Services",
+    "Financial Advice",
+    "Home Repair",
+    "Cleaning Services",
   ];
   const [selectedCategory, setSelectedCategory] = useState(name);
 
   const Navigation = (category) => {
     if (category !== "All") {
-      navigate(`/products/${selectedCategory.toLowerCase()}`);
+      navigate(`/services/${selectedCategory.toLowerCase()}`);
     } else {
-      navigate(`/products`);
+      navigate(`/services`);
     }
   };
   useEffect(() => {
     Navigation(selectedCategory);
     console.log("User selected:", selectedCategory);
   }, [selectedCategory]);
-  
+
   return (
     <div>
       <Promotions messages={promoMessages} />
@@ -68,4 +58,4 @@ const ProductsCategory = () => {
   );
 };
 
-export default ProductsCategory;
+export default ServiceCategory

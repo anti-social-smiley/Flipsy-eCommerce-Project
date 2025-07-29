@@ -43,11 +43,11 @@ const Products = () => {
 
   const Navigation = (category) => {
     if (category !== "All") {
-  navigate(`/products/${selectedCategory}`)
+      navigate(`/products/${selectedCategory.toLowerCase()}`);
     }
   };
   useEffect(() => {
-    // Navigation(selectedCategory)
+    Navigation(selectedCategory);
     console.log("User selected:", selectedCategory);
   }, [selectedCategory]);
   return (
@@ -56,17 +56,18 @@ const Products = () => {
       <CategoryNav
         categories={categories}
         handleClick={(cat) => setSelectedCategory(cat)}
-      />{selectedCategory == "All" && (  
+      />
+      {selectedCategory == "All" && (
         <Box display="flex" flexWrap="wrap" justifyContent="center">
-        <ItemCard image={image} title="Category2" size="800px" />
-        <ItemCard image={image} title="Category3" size="400px" />
-        <ItemCard image={image} title="Category4" size="400px" />
-        <ItemCard image={image} title="Category5" size="400px" />
-        <ItemCard image={image} title="Category6" size="400px" />
-        <ItemCard image={image} title="Category1" size="600px" />
-        <ItemCard image={image} title="Category7" size="300px" />
-        <ItemCard image={image} title="Category8" size="300px" />
-      </Box>
+          <ItemCard image={image} title="Category2" size="800px" />
+          <ItemCard image={image} title="Category3" size="400px" />
+          <ItemCard image={image} title="Category4" size="400px" />
+          <ItemCard image={image} title="Category5" size="400px" />
+          <ItemCard image={image} title="Category6" size="400px" />
+          <ItemCard image={image} title="Category1" size="600px" />
+          <ItemCard image={image} title="Category7" size="300px" />
+          <ItemCard image={image} title="Category8" size="300px" />
+        </Box>
       )}
     </div>
   );
